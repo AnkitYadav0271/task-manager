@@ -28,6 +28,8 @@ const taskSchema = new Schema({
     required: true,
   },
   dueDate: { type: Date, required: true },
+},{
+  timestamps:true
 });
 
 const taskModel = mongoose.model("task", taskSchema);

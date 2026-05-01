@@ -12,15 +12,20 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    minLength: 5,
+    minlength: 5,
   },
   password: {
     type: String,
     required: true,
     minLength: 8,
   },
-  projects: [],
-  updatedAt: new Date(),
+  projects: [mongoose.Types.ObjectId],
+  updatedAt: {
+    type:Date,
+    default:Date.now()
+  },
+},{
+  timestamps:true
 });
 
 const userModel = mongoose.model("User", userSchema);
